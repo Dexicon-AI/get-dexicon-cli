@@ -117,9 +117,17 @@ install() {
 
     if [ -w "$INSTALL_DIR" ]; then
         mv "${tmp_dir}/${BINARY_NAME}" "${INSTALL_DIR}/${BINARY_NAME}"
+        # Remove macOS quarantine attribute
+        if [ "$(uname -s)" = "Darwin" ]; then
+            xattr -d com.apple.quarantine "${INSTALL_DIR}/${BINARY_NAME}" 2>/dev/null || true
+        fi
     else
         info "Requesting sudo access to install to $INSTALL_DIR..."
         sudo mv "${tmp_dir}/${BINARY_NAME}" "${INSTALL_DIR}/${BINARY_NAME}"
+        # Remove macOS quarantine attribute (needs sudo)
+        if [ "$(uname -s)" = "Darwin" ]; then
+            sudo xattr -d com.apple.quarantine "${INSTALL_DIR}/${BINARY_NAME}" 2>/dev/null || true
+        fi
     fi
 
     # Verify installation
