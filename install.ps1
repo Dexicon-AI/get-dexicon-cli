@@ -3,6 +3,9 @@
 
 $ErrorActionPreference = "Stop"
 
+# Enable TLS 1.2 (required for GitHub on older Windows PowerShell)
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+
 $repo = "Dexicon-AI/get-dexicon-cli"
 $installDir = "$env:LOCALAPPDATA\dexicon-cli"
 
