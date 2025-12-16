@@ -16,6 +16,8 @@ curl -sSL https://raw.githubusercontent.com/Dexicon-AI/get-dexicon-cli/main/inst
 irm https://raw.githubusercontent.com/Dexicon-AI/get-dexicon-cli/main/install.ps1 | iex
 ```
 
+> **Note:** After installation, restart PowerShell for PATH changes to take effect.
+
 ### Homebrew (macOS/Linux)
 
 ```bash
@@ -41,9 +43,24 @@ sudo mv dexicon-cli/dexicon /usr/local/bin/dexicon
 ```
 
 **Windows:**
-1. Extract the zip file
-2. Move the `dexicon-cli` folder to a permanent location (e.g., `C:\tools\dexicon-cli`)
-3. Add the folder to your PATH, or run `dexicon.exe` directly from that location
+
+1. Download `dexicon-cli-windows-amd64.zip` from the [Releases](https://github.com/Dexicon-AI/get-dexicon-cli/releases) page
+2. Right-click the zip → **Extract All** → choose a location (e.g., `C:\tools`)
+3. This creates a `dexicon-cli` folder containing `dexicon.exe`
+
+**Option A: Run directly (no PATH setup):**
+```powershell
+& "C:\tools\dexicon-cli\dexicon.exe" --version
+& "C:\tools\dexicon-cli\dexicon.exe" init
+```
+
+**Option B: Add to PATH (run from anywhere):**
+1. Press **Windows key**, type **Environment Variables**, click "Edit the system environment variables"
+2. Click **Environment Variables**
+3. Under "User variables", select **Path**, click **Edit**
+4. Click **New**, add the path to your dexicon-cli folder (e.g., `C:\tools\dexicon-cli`)
+5. Click **OK** on all windows
+6. Restart PowerShell, then run `dexicon --version`
 
 ## Getting Started
 
