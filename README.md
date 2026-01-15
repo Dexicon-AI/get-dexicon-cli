@@ -8,7 +8,7 @@ Index and search your AI coding assistant sessions (Cursor, Claude Code, VS Code
 
 **macOS/Linux:**
 ```bash
-curl -sSL https://raw.githubusercontent.com/Dexicon-AI/get-dexicon-cli/main/install.sh | sh
+curl -sSL https://raw.githubusercontent.com/Dexicon-AI/get-dexicon-cli/main/install.sh | bash
 ```
 
 **Windows (PowerShell):**
